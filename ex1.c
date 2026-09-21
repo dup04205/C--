@@ -30,7 +30,7 @@ int main(void) {
             char c;
             scanf(" %c", &c);
             if (c == 'q') break;
-            printf("잘못된 입력입니다.\n");
+            printf("잘못된 입력\n");
             while (getchar() != '\n');
             continue;
         }
@@ -41,17 +41,17 @@ int main(void) {
             case '+':
                 scanf(" %lf", &num2);
                 result = num1 + num2;
-                printf("결과: %.2f %c %.2f = %.2f\n", num1, op, num2, result);
+                printf("결과: %f %c %f = %f\n", num1, op, num2, result);
                 break;
             case '-':
                 scanf(" %lf", &num2);
                 result = num1 - num2;
-                printf("결과: %.2f %c %.2f = %.2f\n", num1, op, num2, result);
+                printf("결과: %f %c %f = %f\n", num1, op, num2, result);
                 break;
             case '*':
                 scanf(" %lf", &num2);
                 result = num1 * num2;
-                printf("결과: %.2f %c %.2f = %.2f\n", num1, op, num2, result);
+                printf("결과: %f %c %f = %f\n", num1, op, num2, result);
                 break;
             case '/':
                 scanf(" %lf", &num2);
@@ -60,22 +60,22 @@ int main(void) {
                     continue;
                 }
                 result = num1 / num2;
-                printf("결과: %.2f %c %.2f = %.2f\n", num1, op, num2, result);
+                printf("결과: %f %c %f = %f\n", num1, op, num2, result);
                 break;
             case '^':
                 result = num1 * num1;
-                printf("결과: %.2f^2 = %.2f\n", num1, result);
+                printf("결과: %f^2 = %f\n", num1, result);
                 break;
             case 's':
-            result = sqrt(num1);
-                printf("결과: sqrt(%.2f) = %.2f\n", num1, result);
-                break;
                 if (num1 < 0) {
                     printf("오류: 음수는 제곱근을 계산할 수 없습니다.\n");
                     continue;
                 }
+                result = sqrt(num1);
+                printf("결과: sqrt(%f) = %f\n", num1, result);
+                break;
             default:
-                printf("지원하지 않는 연산자입니다. (+, -, *, /, ^(제곱), s(제곱근) 만 가능)\n");
+                printf("지원하지 않는 연산자 (+, -, *, /, ^(제곱), s(제곱근) 만 가능)\n");
                 continue;
         }
     }
