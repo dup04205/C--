@@ -15,46 +15,72 @@
 #include <stdio.h>
 #include <math.h>
 
+static void flush_input(void)
+{
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF);
+}
+
 int main(void) {
     double num1, num2, result;
     char op;
 
     printf("=== 계산기 ===\n");
 
-    while (1) 
+    while (1)
     {
         printf("\n수식 입력 (예: a + b, a ^ (제곱), a s (제곱근)), 종료하려면 q 입력: ");
 
-        if (scanf(" %lf", &num1) != 1) 
+        if (scanf(" %lf", &num1) != 1)
         {
             char c;
-            scanf(" %c", &c);
+            if (scanf(" %c", &c) != 1) break;
             if (c == 'q') break;
             printf("잘못된 입력\n");
-            while (getchar() != '\n');
+            flush_input();
             continue;
         }
 
-        scanf(" %c", &op);
+        if (scanf(" %c", &op) != 1) {
+            printf("잘못된 입력입니다.\n");
+            flush_input();
+            continue;
+        }
 
         switch (op) {
             case '+':
-                scanf(" %lf", &num2);
+                if (scanf(" %lf", &num2) != 1) {
+                    printf("잘못된 입력입니다.\n");
+                    flush_input();
+                    continue;
+                }
                 result = num1 + num2;
                 printf("결과: %f %c %f = %f\n", num1, op, num2, result);
                 break;
             case '-':
-                scanf(" %lf", &num2);
+                if (scanf(" %lf", &num2) != 1) {
+                    printf("잘못된 입력입니다.\n");
+                    flush_input();
+                    continue;
+                }
                 result = num1 - num2;
                 printf("결과: %f %c %f = %f\n", num1, op, num2, result);
                 break;
             case '*':
-                scanf(" %lf", &num2);
+                if (scanf(" %lf", &num2) != 1) {
+                    printf("잘못된 입력입니다.\n");
+                    flush_input();
+                    continue;
+                }
                 result = num1 * num2;
                 printf("결과: %f %c %f = %f\n", num1, op, num2, result);
                 break;
             case '/':
-                scanf(" %lf", &num2);
+                if (scanf(" %lf", &num2) != 1) {
+                    printf("잘못된 입력입니다.\n");
+                    flush_input();
+                    continue;
+                }
                 if (num2 == 0) {
                     printf("오류: 0으로 나눌 수 없습니다.\n");
                     continue;
