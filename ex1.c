@@ -80,6 +80,6 @@ int main(void) {
         }
     }
 
-    printf("계산기를 종료합니다.\n");
+    printf("계산기를 종료.\n");
     return 0;
 }
